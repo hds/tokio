@@ -124,7 +124,7 @@ socket2 = { version = "0.4.4", optional = true, features = [ "all" ] }
 # Currently unstable. The API exposed by these features may be broken at any time.
 # Requires `--cfg tokio_unstable` to enable.
 [target.'cfg(tokio_unstable)'.dependencies]
-tracing = { version = "0.1.25", default-features = false, features = ["std"], optional = true } # Not in full
+tracing = { version = "0.1.25", default-features = false, features = ["std"], optional = true, path = "../../tracing/tracing" } # Not in full
 
 [target.'cfg(unix)'.dependencies]
 libc = { version = "0.2.42", optional = true }
@@ -150,6 +150,9 @@ futures = { version = "0.3.0", features = ["async-await"] }
 mockall = "0.11.1"
 tempfile = "3.1.0"
 async-stream = "0.3"
+tracing = { version = "0.1.25", default-features = false, features = ["std"], path = "../../tracing/tracing" } # Not in full
+tracing-attributes = { version = "0.1.22", path = "../../tracing/tracing-attributes" }
+tracing-mock = { version = "0.1.0", path = "../../tracing/tracing-mock" }
 
 [target.'cfg(not(any(target_arch = "wasm32", target_arch = "wasm64")))'.dev-dependencies]
 proptest = "1"
